@@ -19,7 +19,7 @@ pipeline {
                     docker build -t intervolz-website .
                     docker stop intervolz-website-container || true
                     docker rm intervolz-website-container || true
-                    docker run -d -p 8081:80 -p 8081:443 \
+                    docker run -d -p 8081:443 \
                         -v /etc/letsencrypt/live/intervolz.com/fullchain.pem:/etc/nginx/ssl/fullchain.pem:ro \
                         -v /etc/letsencrypt/live/intervolz.com/privkey.pem:/etc/nginx/ssl/privkey.pem:ro \
                         --name intervolz-website-container intervolz-website
