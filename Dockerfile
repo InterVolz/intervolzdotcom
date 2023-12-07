@@ -1,10 +1,6 @@
 # Use nginx image from Docker Hub as the base image
 FROM nginx:alpine
 
-# Copy SSL certificates
-COPY /etc/letsencrypt/live/intervolz.com/fullchain.pem /etc/nginx/ssl/fullchain.pem
-COPY /etc/letsencrypt/live/intervolz.com/privkey.pem /etc/nginx/ssl/privkey.pem
-
 # Copy the custom Nginx configuration file
 COPY nginx.conf /etc/nginx/nginx.conf
 
