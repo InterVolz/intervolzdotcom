@@ -16,7 +16,7 @@ pipeline {
         stage('Build and Deploy Intervolz Locally') {
             steps {
                 sh '''
-                    docker build -t intervolz-website -f Dockerfile src
+                    docker build -t intervolz-website .
                     docker stop intervolz-website-container || true
                     docker rm intervolz-website-container || true
                     docker run -d -p 8081:80 --name intervolz-website-container intervolz-website
