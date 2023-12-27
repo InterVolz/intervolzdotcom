@@ -20,7 +20,8 @@ pipeline {
                     docker stop intervolz-website-container || true
                     docker rm intervolz-website-container || true
 
-                    docker run -d -p 8082:80 \
+                    docker run -d  \
+                        --network intervolz-network \
                         --name intervolz-website-container \
                         intervolz-website
                 '''
