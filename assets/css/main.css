@@ -11,6 +11,11 @@ body {
     padding: 20px;
 }
 
+main > section {
+    max-width: 680px;
+    margin: 60px auto 0;
+}
+
 header, footer {
     text-align: center;
     padding: 20px 0;

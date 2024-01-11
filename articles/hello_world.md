@@ -1,10 +1,9 @@
 @@Title: Hello World
-@@URL: hello_world
+@@URL: hello-world
 @@Tags: py
-@@Date: 1/1/24
+@@Date: 1/1/2024
 @@TLDR: new dawn day mess
 
-# Hello
 ## Hello
 ### Hello
 

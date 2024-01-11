@@ -2,7 +2,8 @@
 <html>
 <head>
     <title>{{{title}}}</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/article.css">
         <!-- Add any head elements like CSS links -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,10 +18,12 @@
         </nav>
     </header>
     <main>
-        <h1 class="title">{{{title}}}</h1>
-        <div class="snip">{{{date}}} {{{amount_of_words}}} {{{read_duration}}}</div>
+        <section>
+        <h1 class="title">{{{Title}}}</h1>
+        <div class="snip">{{{HumanDate}}} - {{{WordCount}}} words - {{{ReadEstimate}}} mins</div>
         <div class="content">{{{content}}}</div>
         <div class="tags">{{{tags}}}</div>
+        </section>
     </main>
     <footer>
         <!-- Your site's footer content -->

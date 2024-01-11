@@ -4,7 +4,7 @@ const MarkdownIt = require('markdown-it');
 const Handlebars = require('handlebars');
 const md = new MarkdownIt();
 
-const { formatHumanReadableDate } = require('./utils');
+const { formatHumanReadableDate, countWords } = require('./utils');
 
 class SiteGenerator {
     constructor() {
@@ -45,9 +45,18 @@ class SiteGenerator {
                 // When the date is found, format it and add to metadata
                 if (key.includes('Date')) {
                     metadata['HumanDate'] = formatHumanReadableDate(value);
+                    metadata['Year'] = metadata.Date.split('/')[2];
+                    metadata['FullPath'] = `posts/${metadata['Year']}/${metadata['URL']}/`
                 }
+
+                if(key.includes('Tags')) {
+                    metadata['Tags'] = metadata.Tags.split(',').map(item => item.trim());
+                }
+
             } else {
                 // Rest of the article content
+                metadata['WordCount'] = countWords(content)
+                metadata['ReadEstimate'] = (metadata['WordCount'] / 60).toFixed(1)
                 content += line + '\n';
             }
         });
@@ -58,22 +67,27 @@ class SiteGenerator {
     
     processArticle(metadata, content) {
         const renderedContent = md.render(content);
-
+    
         // Load Handlebars template for article
         const templateSource = fs.readFileSync(path.join(__dirname, '..', 'templates', 'article.hbs'), 'utf-8');
         const template = Handlebars.compile(templateSource);
-
+    
         // Insert metadata and content into the template
         const htmlOutput = template({ ...metadata, content: renderedContent });
-
+    
+        // Extract year from the date
+        const year = metadata.Date.split('/')[2];
+        // Normalize the title to create a URL-friendly string
+    
         // Define the directory path for the article
-        const articleDir = path.join(__dirname, '..', 'src', metadata.URL);
-
+        // Updated to use the /posts/{{year}}/{{title}} format
+        const articleDir = path.join(__dirname, '..', 'src', 'posts', metadata.Year, metadata.URL);
+    
         // Ensure the article directory exists
         if (!fs.existsSync(articleDir)){
             fs.mkdirSync(articleDir, { recursive: true });
         }
-
+    
         // Write the final HTML to the article directory as index.html
         fs.writeFileSync(path.join(articleDir, 'index.html'), htmlOutput);
     }
@@ -97,7 +111,7 @@ class SiteGenerator {
                 date: article.metadata.Date,
                 humandate: article.metadata.HumanDate,
                 tldr: article.metadata.TLDR,
-                url: `/${article.metadata.URL}.html` // Adjust URL as needed
+                url: article.metadata.FullPath // Adjust URL as needed
             }))
         };
 
@@ -166,7 +180,7 @@ class SiteGenerator {
     extractAndSortTags() {
         const tagsMap = new Map();
         this.articles.forEach(article => {
-            const tags = article.metadata.Tags.split(',').map(tag => tag.trim());
+            const tags = article.metadata.Tags;
             tags.forEach(tag => {
                 if (!tagsMap.has(tag)) {
                     tagsMap.set(tag, 1);
@@ -191,6 +205,11 @@ class SiteGenerator {
         // Generate the tags page HTML
         const htmlOutput = template({ tags });
 
+        const tagsPath = path.join(__dirname, '..', 'src', 'tags')
+        if (!fs.existsSync(tagsPath)){
+            fs.mkdirSync(tagsPath, { recursive: true });
+        }
+
         // Write the final HTML to the src directory
         fs.writeFileSync(path.join(__dirname, '..', 'src', 'tags', 'index.html'), htmlOutput);
     }
@@ -201,7 +220,7 @@ class SiteGenerator {
     
         // Articles filtered by the given tag
         const taggedArticles = this.articles.filter(article => 
-            article.metadata.Tags.split(',').map(t => t.trim()).includes(tagString));
+            article.metadata.Tags.map(t => t.trim()).includes(tagString));
     
         // Load the Handlebars template for the tag page
         const templateSource = fs.readFileSync(path.join(__dirname, '..', 'templates', 'tag.hbs'), 'utf-8');
@@ -213,7 +232,7 @@ class SiteGenerator {
             articles: taggedArticles.map(article => ({
                 title: article.metadata.Title,
                 date: article.metadata.HumanDate,
-                url: `/${article.metadata.URL}.html`
+                url: article.metadata.FullPath
             }))
         };
     

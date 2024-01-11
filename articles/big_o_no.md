@@ -1,6 +1,6 @@
 @@Title: Big O No
-@@URL: big_o_no
-@@Date: 11/14/23
+@@URL: big-o-no
+@@Date: 11/14/2023
 @@TLDR: optimized optimizing is optimal...
 @@Tags: programming
 

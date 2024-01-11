@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Article Archive</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/archive.css">
+    <title>Archive</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/archive.css">
         <!-- Add any head elements like CSS links -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,6 +25,7 @@
         </div>
     </header>
     <main>
+        <section>
         {{#each years}}
         <div class="year-section">
             <h2>{{year}}</h2>
@@ -32,10 +33,10 @@
                 {{#each articles}}
                 <li>
                     <span class="date">{{metadata.HumanDate}}</span>
-                    <a href="/{{metadata.URL}}.html">{{metadata.Title}}</a>
+                    <a href="/{{metadata.FullPath}}">{{metadata.Title}}</a>
                     <div class="tags">
                         {{#each metadata.Tags}}
-                        <a href="/tags/{{this}}.html">#{{this}}</a>
+                        <a href="/tags/{{this}}/">#{{this}}</a>
                         {{/each}}
                     </div>
                 </li>
@@ -43,6 +44,7 @@
             </ul>
         </div>
         {{/each}}
+        </section>
     </main>
     <footer>
         <!-- Footer content -->
