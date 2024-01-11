@@ -1,0 +1,65 @@
+body {
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+article {
+    margin-bottom: 40px;
+}
+
+article h2 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+    color: #000;
+}
+
+article p {
+    font-size: 1em;
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.article-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article-meta .date {
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* Add any other styles you need for the page */
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+}
+
+footer a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+}
+
+/* Style for 'Older posts' navigation link */
+.pagination {
+    text-align: center;
+}
+
+.pagination a {
+    display: inline-block;
+    text-decoration: none;
+    color: #333;
+    background-color: #f0f0f0;
+    padding: 10px 15px;
+    margin-top: 30px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: #e4e4e4;
+}

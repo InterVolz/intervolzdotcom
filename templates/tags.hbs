@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tags</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/tags.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:wght@900&family=Rochester&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Navigation links -->
+            <a href="/">~</a> <a href="/archive">~/archive</a> <a href="/tags">~/tags</a> <a href="/about">~/about</a>
+        </nav>
+    </header>
+    <main>
+        <div class="tags-container">
+            {{#each tags}}
+            <a href="/tags/{{tag}}.html" class="tag" data-count="{{count}}">
+                {{tag}} <span>({{count}})</span>
+            </a>
+            {{/each}}
+        </div>
+    </main>
+</body>
+</html>

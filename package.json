@@ -1,0 +1,34 @@
+{
+  "name": "intervolzdotcom",
+  "version": "1.0.0",
+  "description": "website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node scripts/static_site_generator.js",
+    "watch": "nodemon --watch articles -e md,json,yaml --exec \"npm run build\"",
+    "serve": "npx serve src",
+    "start": "concurrently \"npm run watch\" \"npm run serve\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InterVolz/intervolzdotcom.git"
+  },
+  "keywords": [
+    "tech"
+  ],
+  "author": "Maxwell Volz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/InterVolz/intervolzdotcom/issues"
+  },
+  "homepage": "https://github.com/InterVolz/intervolzdotcom#readme",
+  "dependencies": {
+    "markdown-it": "^14.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "handlebars": "^4.7.8",
+    "nodemon": "^3.0.2"
+  }
+}

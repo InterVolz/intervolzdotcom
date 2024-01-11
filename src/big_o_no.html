@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="css/main.css">
+        <!-- Add any head elements like CSS links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:wght@900&family=Rochester&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+    <!-- Add any head elements like CSS links -->
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Navigation links -->
+            <a href="/">~</a> <a href="/archive">~/archive</a> <a href="/tags">~/tags</a> <a href="/about">~/about</a>
+        </nav>
+    </header>
+    <main>
+        <h1 class="title"></h1>
+        <div class="snip">  </div>
+        <div class="content"><h1>Big O No(tation)</h1>
+<h2>What is it?</h2>
+<ul>
+<li>Big O Notation describes the time complexity of programming algorithms</li>
+<li>AKA how efficient is the solution to the problem?</li>
+</ul>
+<h2>The Goal is:</h2>
+<ul>
+<li>Shorter</li>
+<li>Faster</li>
+<li>Succinct</li>
+</ul>
+<h2>Slowly at first</h2>
+<blockquote>
+<p>Problem: 10 times 10
+Solution:</p>
+<p>O(n): 10*10=100</p>
+<p>O(n^2): 10+10=20+10=30+10=40+10=50....you get the idea. This is bad.</p>
+</blockquote>
+<h2>Levels to this shit</h2>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Phonetically</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O(1)</td>
+<td>&quot;Oh-one&quot;</td>
+<td>Constant Time</td>
+<td>Access element of array by index; using modulus for even/odd check</td>
+</tr>
+<tr>
+<td>O(log N)</td>
+<td>&quot;Oh log-N&quot;</td>
+<td>Logarithmic Time</td>
+<td>Binary search on a sorted list, each sort halves search space</td>
+</tr>
+<tr>
+<td>O(N)</td>
+<td>&quot;Oh N&quot;</td>
+<td>Linear Time</td>
+<td>Simple loop, finding max() or min() by checking all elements once</td>
+</tr>
+<tr>
+<td>O(N log N)</td>
+<td>&quot;</td>
+<td>Linearithmic Time</td>
+<td>Merge-sort, list is split, sorted, and merged back</td>
+</tr>
+<tr>
+<td>O(N^2)</td>
+<td>&quot;Oh shit&quot;*</td>
+<td>Quadradic Time</td>
+<td>Nested loops, bubble sort, elements evaluated in pair-wise fashion</td>
+</tr>
+</tbody>
+</table>
+<p>*Basically, but really its Quadradically</p>
+<h2>How to Eyeball It</h2>
+<ol>
+<li>Counting <em>primitive operations</em>, AKA math, comparisons, assignments</li>
+<li>Identify <em>dominant terms</em>,
+<ol>
+<li>overall time complexity is based on the slowest performer that scales the worst</li>
+</ol>
+</li>
+<li>Worst Case First
+<ol>
+<li>Big O Analysis focuses on the worst-case scenario to provide the upper bound of the time complexity</li>
+</ol>
+</li>
+<li>Nested Loops and Recursion
+<ol>
+<li>Multiply the complexity of the loops, and weep</li>
+<li>How <em>much</em> recursion? And how complex?</li>
+</ol>
+</li>
+<li>Data Structures 101
+<ol>
+<li>Appending to a list is generally O(1)</li>
+<li>Appending or Popping from a queue is O(N) due to shifting of other elements</li>
+</ol>
+</li>
+<li>Space-Time Trade-off
+<ol>
+<li>Loading everything into memory</li>
+<li>Caching</li>
+</ol>
+</li>
+<li>When in doubt...time it!
+<ol>
+<li>Theory is great</li>
+<li>Accurate real world measurements are better</li>
+</ol>
+</li>
+</ol>
+</div>
+        <div class="tags"></div>
+    </main>
+    <footer>
+        <!-- Your site's footer content -->
+    </footer>
+</body>
+</html>

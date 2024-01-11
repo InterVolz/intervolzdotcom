@@ -1,0 +1,39 @@
+
+.tags-container {
+    text-align: center;
+}
+
+.tag {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px;
+    color: #fff;
+    background-color: #333;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+.tag:hover {
+    background-color: #555;
+}
+
+.tag span {
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+/* Small tags for less frequent tags */
+.tag[data-count="1"] { font-size: 0.8rem; }
+.tag[data-count="2"] { font-size: 0.9rem; }
+
+/* Medium tags for moderately frequent tags */
+.tag[data-count="3"],
+.tag[data-count="4"],
+.tag[data-count="5"] { font-size: 1.0rem; }
+
+/* Large tags for most frequent tags */
+.tag[data-count="6"],
+.tag[data-count="7"],
+.tag[data-count="8"],
+.tag[data-count="9"],
+.tag[data-count="10"] { font-size: 1.2rem; }

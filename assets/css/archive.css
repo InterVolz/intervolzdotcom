@@ -1,0 +1,44 @@
+
+.year-section {
+    margin-bottom: 30px;
+}
+
+.year-section h2 {
+    font-size: 1.5em;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.article-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.article-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.article-list li:last-child {
+    border-bottom: none;
+}
+
+.article-list .date {
+    font-size: 0.85em;
+    color: #666;
+}
+
+.article-list .tags {
+    margin-top: 5px;
+}
+
+.article-list .tags a {
+    display: inline-block;
+    color: #333;
+    padding: 3px 10px;
+    text-decoration: none;
+    margin-right: 5px;
+    font-size: 0.85em;
+    border-radius: 3px;
+}

@@ -27,30 +27,16 @@
     </header>
     <main>
         <section class="latest-articles">
+            {{#each articles}}
             <article>
                 <div>
-                    <div class="date"><time datetime="1/1/24">Jan 1</time></div>
-                    <div class="title"><a href="/hello_world.html">Hello World</a></div>
+                    <div class="date"><time datetime="{{date}}">{{humandate}}</time></div>
+                    <div class="title"><a href="{{url}}">{{title}}</a></div>
                 </div>
-                <div class="tldr">new dawn day mess</div>
+                <div class="tldr">{{tldr}}</div>
                 
             </article>
-            <article>
-                <div>
-                    <div class="date"><time datetime="11/17/23">Nov 17</time></div>
-                    <div class="title"><a href="/jenkins_02.html">Jenkins Server Part 2</a></div>
-                </div>
-                <div class="tldr">build servers are fun!</div>
-                
-            </article>
-            <article>
-                <div>
-                    <div class="date"><time datetime="11/15/23">Nov 15</time></div>
-                    <div class="title"><a href="/jenkins_01.html">Jenkins Server Part 1</a></div>
-                </div>
-                <div class="tldr">build servers are fun!</div>
-                
-            </article>
+            {{/each}}
         </section>
     </main>
     <footer>
