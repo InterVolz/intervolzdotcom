@@ -95,3 +95,7 @@ article:hover .title_box .date {
     text-decoration: underline;
     /* Add underline */
 }
+
+div.date {
+    text-align: right;
+}
