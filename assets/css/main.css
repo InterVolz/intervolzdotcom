@@ -1,28 +1,27 @@
-
-
 /* More CSS styles as needed */
 body {
     font-family: 'Roboto Mono', monospace;
-    color: #333;
-    background-color: #f8f8f8;
+    color: #666;
+    background-color: #111013;
     line-height: 1.6;
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
 }
 
-main > section {
+main>section {
     max-width: 680px;
     margin: 60px auto 0;
 }
 
-header, footer {
+header,
+footer {
     text-align: center;
     padding: 20px 0;
 }
 
 header .title {
-    font-size: 2.5em;
+    font-size: 4.2em;
     margin: 0;
 }
 
@@ -32,6 +31,5 @@ header .social-links {
 
 header .social-links a {
     text-decoration: none;
-    color: #333;
     margin: 0 10px;
 }

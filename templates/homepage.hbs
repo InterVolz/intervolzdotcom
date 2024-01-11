@@ -29,11 +29,13 @@
         <section class="latest-articles">
             {{#each articles}}
             <article>
-                <div>
-                    <div class="date"><time datetime="{{date}}">{{humandate}}</time></div>
-                    <div class="title"><a href="{{url}}">{{title}}</a></div>
-                </div>
-                <div class="tldr">{{tldr}}</div>
+                <a href="{{url}}">
+                    <div class="title_box">
+                        <div class="title">{{title}}</div>
+                        <div class="date"><time datetime="{{date}}">{{humandate}}</time></div>
+                    </div>
+                    <div class="tldr">{{tldr}}</div>
+                </a>
                 
             </article>
             {{/each}}

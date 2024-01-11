@@ -1,11 +1,15 @@
 body {
-    color: #333;
+    color: #666;
     line-height: 1.6;
     padding: 20px;
 }
 
 article {
     margin-bottom: 40px;
+    background-color: #222;
+    border-radius: 5px;
+    margin: 10px auto 0;
+    padding: 14px;
 }
 
 article h2 {
@@ -18,6 +22,24 @@ article p {
     font-size: 1em;
     margin-bottom: 10px;
     color: #666;
+}
+
+div.title_box {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.title {
+    color: #888;
+    font-size: larger;
+}
+
+div.tldr {
+    color: #555;
+}
+
+article>a {
+    text-decoration: none;
 }
 
 .article-meta {
@@ -40,7 +62,7 @@ footer {
 
 footer a {
     text-decoration: none;
-    color: #333;
+    color: #555;
     font-size: 1em;
 }
 
@@ -52,7 +74,7 @@ footer a {
 .pagination a {
     display: inline-block;
     text-decoration: none;
-    color: #333;
+    color: #555;
     background-color: #f0f0f0;
     padding: 10px 15px;
     margin-top: 30px;
@@ -62,4 +84,14 @@ footer a {
 
 .pagination a:hover {
     background-color: #e4e4e4;
+}
+
+
+article:hover .title_box .title,
+article:hover .title_box .date {
+    /* Example styles to indicate clickable items */
+    color: #007bff;
+    /* Change color */
+    text-decoration: underline;
+    /* Add underline */
 }

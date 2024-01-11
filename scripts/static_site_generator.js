@@ -2,7 +2,15 @@ const fs = require('fs');
 const path = require('path');
 const MarkdownIt = require('markdown-it');
 const Handlebars = require('handlebars');
-const md = new MarkdownIt();
+const hljs = require('highlight.js');
+
+const md = MarkdownIt({
+    html: true,
+    linkify: true,
+    typographer: true
+})
+
+
 
 const { formatHumanReadableDate, countWords } = require('./utils');
 

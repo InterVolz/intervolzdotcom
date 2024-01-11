@@ -9,6 +9,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:wght@900&family=Rochester&family=Saira+Stencil+One&display=swap" rel="stylesheet">
     <!-- Other head elements -->
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('li[data-href]').forEach(item => {
+            item.addEventListener('click', function(e) {
+                // If the clicked element is not a link, navigate to the data-href URL
+                if (!e.target.closest('a')) {
+                    window.location.href = this.getAttribute('data-href');
+                }
+            });
+        });
+    });
+
+    </script>
 </head>
 <body>
     <header>
@@ -31,9 +44,13 @@
             <h2>{{year}}</h2>
             <ul class="article-list">
                 {{#each articles}}
-                <li>
-                    <span class="date">{{metadata.HumanDate}}</span>
-                    <a href="/{{metadata.FullPath}}">{{metadata.Title}}</a>
+                <li data-href="/{{metadata.FullPath}}">
+                    <a href="/{{metadata.FullPath}}">
+                        <div class="article_box">
+                            <div class="title">{{metadata.Title}}</div>
+                            <div class="date"><time datetime="{{metadata.Date}}">{{metadata.HumanDate}}</time></div>
+                        </div>
+                    </a>
                     <div class="tags">
                         {{#each metadata.Tags}}
                         <a href="/tags/{{this}}/">#{{this}}</a>

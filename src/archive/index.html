@@ -9,6 +9,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:wght@900&family=Rochester&family=Saira+Stencil+One&display=swap" rel="stylesheet">
     <!-- Other head elements -->
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('li[data-href]').forEach(item => {
+            item.addEventListener('click', function(e) {
+                // If the clicked element is not a link, navigate to the data-href URL
+                if (!e.target.closest('a')) {
+                    window.location.href = this.getAttribute('data-href');
+                }
+            });
+        });
+    });
+
+    </script>
 </head>
 <body>
     <header>
@@ -29,9 +42,13 @@
         <div class="year-section">
             <h2>2024</h2>
             <ul class="article-list">
-                <li>
-                    <span class="date">Jan 1</span>
-                    <a href="/posts/2024/hello-world/">Hello World</a>
+                <li data-href="/posts/2024/hello-world/">
+                    <a href="/posts/2024/hello-world/">
+                        <div class="article_box">
+                            <div class="title">Hello World</div>
+                            <div class="date"><time datetime="1/1/2024">Jan 1</time></div>
+                        </div>
+                    </a>
                     <div class="tags">
                         <a href="/tags/py/">#py</a>
                     </div>
@@ -41,25 +58,37 @@
         <div class="year-section">
             <h2>2023</h2>
             <ul class="article-list">
-                <li>
-                    <span class="date">Nov 17</span>
-                    <a href="/posts/2023/jenkins-server-part-02/">Jenkins Server Part 2</a>
+                <li data-href="/posts/2023/jenkins-server-part-02/">
+                    <a href="/posts/2023/jenkins-server-part-02/">
+                        <div class="article_box">
+                            <div class="title">Jenkins Server Part 2</div>
+                            <div class="date"><time datetime="11/17/2023">Nov 17</time></div>
+                        </div>
+                    </a>
                     <div class="tags">
                         <a href="/tags/jenkins/">#jenkins</a>
                         <a href="/tags/web/">#web</a>
                     </div>
                 </li>
-                <li>
-                    <span class="date">Nov 15</span>
-                    <a href="/posts/2023/jenkins-server-part-1/">Jenkins Server Part 1</a>
+                <li data-href="/posts/2023/jenkins-server-part-1/">
+                    <a href="/posts/2023/jenkins-server-part-1/">
+                        <div class="article_box">
+                            <div class="title">Jenkins Server Part 1</div>
+                            <div class="date"><time datetime="11/15/2023">Nov 15</time></div>
+                        </div>
+                    </a>
                     <div class="tags">
                         <a href="/tags/jenkins/">#jenkins</a>
                         <a href="/tags/web/">#web</a>
                     </div>
                 </li>
-                <li>
-                    <span class="date">Nov 14</span>
-                    <a href="/posts/2023/big-o-no/">Big O No</a>
+                <li data-href="/posts/2023/big-o-no/">
+                    <a href="/posts/2023/big-o-no/">
+                        <div class="article_box">
+                            <div class="title">Big O No</div>
+                            <div class="date"><time datetime="11/14/2023">Nov 14</time></div>
+                        </div>
+                    </a>
                     <div class="tags">
                         <a href="/tags/programming/">#programming</a>
                     </div>

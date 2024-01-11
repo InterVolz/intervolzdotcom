@@ -6,3 +6,7 @@ h1 {
 .snip{
     text-align: center;
 }
+
+pre {
+    border-radius: 5px;
+}

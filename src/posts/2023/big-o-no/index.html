@@ -4,11 +4,28 @@
     <title></title>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/article.css">
-        <!-- Add any head elements like CSS links -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:wght@900&family=Rochester&family=Saira+Stencil+One&display=swap" rel="stylesheet">
-    <!-- Add any head elements like CSS links -->
+
+    <link rel="stylesheet" href="/css/highlight.min.css">
+    <script src="/js/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="/css/highlightjs-copy.min.css">
+    <link rel="stylesheet" href="/css/highlightjs-dracula.css">
+    <script src="/js/highlightjs-copy.min.js"></script>
+
+    <script>
+        hljs.addPlugin(
+            new CopyButtonPlugin({
+                callback: (text, el) => console.log("Copied to clipboard", text),
+            })
+        );
+        hljs.highlightAll();
+    </script>
+
+    
 </head>
 <body>
     <header>
@@ -38,7 +55,7 @@
 <p>Problem: 10 times 10
 Solution:</p>
 <p>O(n): 10*10=100</p>
-<p>O(n^2): 10+10=20+10=30+10=40+10=50....you get the idea. This is bad.</p>
+<p>O(n^2): 10+10=20+10=30+10=40+10=50…you get the idea. This is bad.</p>
 </blockquote>
 <h2>Levels to this shit</h2>
 <table>
@@ -53,19 +70,19 @@ Solution:</p>
 <tbody>
 <tr>
 <td>O(1)</td>
-<td>&quot;Oh-one&quot;</td>
+<td>“Oh-one”</td>
 <td>Constant Time</td>
 <td>Access element of array by index; using modulus for even/odd check</td>
 </tr>
 <tr>
 <td>O(log N)</td>
-<td>&quot;Oh log-N&quot;</td>
+<td>“Oh log-N”</td>
 <td>Logarithmic Time</td>
 <td>Binary search on a sorted list, each sort halves search space</td>
 </tr>
 <tr>
 <td>O(N)</td>
-<td>&quot;Oh N&quot;</td>
+<td>“Oh N”</td>
 <td>Linear Time</td>
 <td>Simple loop, finding max() or min() by checking all elements once</td>
 </tr>
@@ -77,7 +94,7 @@ Solution:</p>
 </tr>
 <tr>
 <td>O(N^2)</td>
-<td>&quot;Oh shit&quot;*</td>
+<td>“Oh shit”*</td>
 <td>Quadradic Time</td>
 <td>Nested loops, bubble sort, elements evaluated in pair-wise fashion</td>
 </tr>
@@ -115,7 +132,7 @@ Solution:</p>
 <li>Caching</li>
 </ol>
 </li>
-<li>When in doubt...time it!
+<li>When in doubt…time it!
 <ol>
 <li>Theory is great</li>
 <li>Accurate real world measurements are better</li>
@@ -128,6 +145,8 @@ Solution:</p>
     </main>
     <footer>
         <!-- Your site's footer content -->
+
+            <a href="/tags/programming/">#programming</a>
     </footer>
 </body>
 </html>
