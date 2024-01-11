@@ -66,8 +66,16 @@ class SiteGenerator {
         // Insert metadata and content into the template
         const htmlOutput = template({ ...metadata, content: renderedContent });
 
-        // Write the final HTML to the src directory
-        fs.writeFileSync(path.join(__dirname, '..', 'src', `${metadata.URL}.html`), htmlOutput);
+        // Define the directory path for the article
+        const articleDir = path.join(__dirname, '..', 'src', metadata.URL);
+
+        // Ensure the article directory exists
+        if (!fs.existsSync(articleDir)){
+            fs.mkdirSync(articleDir, { recursive: true });
+        }
+
+        // Write the final HTML to the article directory as index.html
+        fs.writeFileSync(path.join(articleDir, 'index.html'), htmlOutput);
     }
 
     // Generate homepage
@@ -112,8 +120,15 @@ class SiteGenerator {
         // Generate the archive page HTML
         const htmlOutput = template({ years: articlesByYear });
 
+        const archiveDir = path.join(__dirname, '..', 'src', 'archive');
+
+        // Ensure the tag directory exists
+        if (!fs.existsSync(archiveDir)){
+            fs.mkdirSync(archiveDir, { recursive: true });
+        }
+
         // Write the final HTML to the src directory
-        fs.writeFileSync(path.join(__dirname, '..', 'src', 'archive.html'), htmlOutput);
+        fs.writeFileSync(path.join(__dirname, '..', 'src', 'archive', 'index.html'), htmlOutput);
     }
 
     groupArticlesByYear() {
@@ -177,29 +192,49 @@ class SiteGenerator {
         const htmlOutput = template({ tags });
 
         // Write the final HTML to the src directory
-        fs.writeFileSync(path.join(__dirname, '..', 'src', 'tags.html'), htmlOutput);
+        fs.writeFileSync(path.join(__dirname, '..', 'src', 'tags', 'index.html'), htmlOutput);
     }
 
-    generateTagPage(tag) {
-        // Ensure the tags directory exists
-        const tagsDir = path.join(__dirname, '..', 'src', 'tags');
-        if (!fs.existsSync(tagsDir)){
-            fs.mkdirSync(tagsDir, { recursive: true });
-        }
-
-        // Filter articles by tag
-        const articlesWithTag = this.articles.filter(article => article.metadata.Tags.includes(tag));
-
-        // Load Handlebars template for individual tag page
+    generateTagPage(tagObject) {
+        const tagString = tagObject.tag; // Extracting the tag string from the tag object
+        console.log(tagString);
+    
+        // Articles filtered by the given tag
+        const taggedArticles = this.articles.filter(article => 
+            article.metadata.Tags.split(',').map(t => t.trim()).includes(tagString));
+    
+        // Load the Handlebars template for the tag page
         const templateSource = fs.readFileSync(path.join(__dirname, '..', 'templates', 'tag.hbs'), 'utf-8');
         const template = Handlebars.compile(templateSource);
-
-        // Generate the individual tag page HTML
-        const htmlOutput = template({ tag, articles: articlesWithTag });
-
-        // Write the final HTML to the tags directory
-        fs.writeFileSync(path.join(tagsDir, `${tag}.html`), htmlOutput);
+    
+        // Create data object for the template
+        const data = {
+            tag: tagString,
+            articles: taggedArticles.map(article => ({
+                title: article.metadata.Title,
+                date: article.metadata.HumanDate,
+                url: `/${article.metadata.URL}.html`
+            }))
+        };
+    
+        // Generate HTML for this tag page
+        const htmlOutput = template(data);
+    
+        // Define the directory path for this tag page
+        const tagDir = path.join(__dirname, '..', 'src', 'tags', tagString);
+        console.log(tagDir);
+    
+        // Ensure the tag directory exists
+        if (!fs.existsSync(tagDir)){
+            fs.mkdirSync(tagDir, { recursive: true });
+        }
+    
+        // Write the final HTML to the tag directory as index.html
+        fs.writeFileSync(path.join(tagDir, 'index.html'), htmlOutput);
     }
+    
+    
+    
 
     // Generate about page
     generateAboutPage() {
@@ -215,9 +250,17 @@ class SiteGenerator {
 
         // Inject rendered content into template
         const htmlOutput = template({ content: renderedContent });
+        
+        // Define the directory path for the about page
+        const aboutDir = path.join(__dirname, '..', 'src', 'about');
 
-        // Write the final HTML to the src directory
-        fs.writeFileSync(path.join(__dirname, '..', 'src', 'about.html'), htmlOutput);
+        // Ensure the about directory exists
+        if (!fs.existsSync(aboutDir)){
+            fs.mkdirSync(aboutDir, { recursive: true });
+        }
+
+        // Write the final HTML to the about directory as index.html
+        fs.writeFileSync(path.join(aboutDir, 'index.html'), htmlOutput);
     }
 
     // Method to copy assets
