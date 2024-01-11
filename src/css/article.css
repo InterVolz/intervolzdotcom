@@ -3,10 +3,42 @@ h1 {
     font-size: 32px;
 }
 
-.snip{
+.snip {
     text-align: center;
 }
 
 pre {
     border-radius: 5px;
+}
+
+
+.content>h2,
+.content>h2>a {
+    text-decoration: none !important;
+    color: white;
+}
+
+.content>h3,
+.content>h3>a,
+.content>h4>a,
+.content>h4 {
+    text-decoration: none !important;
+    color: #bbb;
+}
+
+
+.content>h3>a:link {
+    text-decoration: none;
+}
+
+.content>h3>a:visited {
+    text-decoration: none;
+}
+
+.content>h3>a:hover {
+    text-decoration: none;
+}
+
+.content>h3>a:active {
+    text-decoration: none;
 }

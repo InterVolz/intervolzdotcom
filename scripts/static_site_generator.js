@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const anchor = require('markdown-it-anchor')
 const MarkdownIt = require('markdown-it');
 const Handlebars = require('handlebars');
 const hljs = require('highlight.js');
@@ -10,6 +11,9 @@ const md = MarkdownIt({
     typographer: true
 })
 
+md.use(anchor, {
+    permalink: anchor.permalink.headerLink()
+  })
 
 
 const { formatHumanReadableDate, countWords } = require('./utils');
@@ -106,7 +110,7 @@ class SiteGenerator {
         const sortedArticles = this.articles.sort((a, b) => new Date(b.metadata.Date) - new Date(a.metadata.Date));
 
         // Take the first 3 articles
-        const latestArticles = sortedArticles.slice(0, 3);
+        const latestArticles = sortedArticles.slice(0, 5);
 
         // Load Handlebars template for homepage
         const templateSource = fs.readFileSync(path.join(__dirname, '..', 'templates', 'homepage.hbs'), 'utf-8');

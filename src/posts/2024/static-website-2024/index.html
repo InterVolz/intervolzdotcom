@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/article.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:wght@900&family=Rochester&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/highlight.min.css">
+    <script src="/js/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="/css/highlightjs-copy.min.css">
+    <link rel="stylesheet" href="/css/highlightjs-dracula.css">
+    <script src="/js/highlightjs-copy.min.js"></script>
+
+    <script>
+        hljs.addPlugin(
+            new CopyButtonPlugin({
+                callback: (text, el) => console.log("Copied to clipboard", text),
+            })
+        );
+        hljs.highlightAll();
+    </script>
+
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Navigation links -->
+            <a href="/">~</a> <a href="/archive">~/archive</a> <a href="/tags">~/tags</a> <a href="/about">~/about</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+        <h1 class="title">Static Website Generator</h1>
+        <div class="snip">Jan 11 - 458 words - 7.6 mins</div>
+        <div class="content"><ul>
+<li><a href="#overview">Overview</a>
+<ul>
+<li><a href="#key-features">Key Features</a></li>
+</ul>
+</li>
+<li><a href="#setting-up">Setting Up</a>
+<ul>
+<li><a href="#requirements">Requirements</a></li>
+</ul>
+</li>
+<li><a href="#running">Running</a>
+<ul>
+<li><a href="#build">Build</a></li>
+<li><a href="#preview">Preview</a></li>
+<li><a href="#development-workflow">Development Workflow</a></li>
+</ul>
+</li>
+<li><a href="#under-the-hood">Under the Hood</a>
+<ul>
+<li><a href="#core-functionalities">Core Functionalities</a></li>
+<li><a href="#special-features">Special Features</a></li>
+<li><a href="#customizable-components">Customizable Components</a></li>
+</ul>
+</li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<p>Welcome to the world of static site generation! Today, we’re diving into the making <a href="https://intervolz.com/">Intervolz.com</a>, the very site you are looking at right now!</p>
+<p>This guide will walk you through the setup and usage of this generator, assuming you have a solid grasp of JavaScript, Node.js, and web development concepts.</p>
+<h2 id="overview" tabindex="-1"><a class="header-anchor" href="#overview">Overview</a></h2>
+<p>The <code>intervolzdotcom</code> generator is a custom-built static site generator. It processes Markdown files into HTML, organizes content by tags and dates, and creates a structured website with a homepage, archive, tag pages, and an about page. The generator uses Handlebars for templating and Markdown-It for rendering Markdown content.</p>
+<h3 id="key-features" tabindex="-1"><a class="header-anchor" href="#key-features">Key Features</a></h3>
+<ul>
+<li><strong>Markdown Support:</strong> Converts Markdown files into HTML.</li>
+<li><strong>Metadata Handling:</strong> Extracts metadata like dates and tags from articles.</li>
+<li><strong>Custom Templates:</strong> Uses Handlebars templates for rendering pages.</li>
+<li><strong>Syntax Highlighting:</strong> Integrates Highlight.js for code blocks in articles.</li>
+</ul>
+<h2 id="setting-up" tabindex="-1"><a class="header-anchor" href="#setting-up">Setting Up</a></h2>
+<h3 id="requirements" tabindex="-1"><a class="header-anchor" href="#requirements">Requirements</a></h3>
+<ol>
+<li>nodejs + npm</li>
+<li>git</li>
+</ol>
+<pre><code class="language-sh">git clone https://github.com/InterVolz/intervolzdotcom
+cd intervolzdotcom
+npm install
+</code></pre>
+<h2 id="running" tabindex="-1"><a class="header-anchor" href="#running">Running</a></h2>
+<h3 id="build" tabindex="-1"><a class="header-anchor" href="#build">Build</a></h3>
+<p>Triggers the <strong>static_site_generator.js</strong> script, which reads Markdown files, applies templates, and generates the final HTML files in <strong>/src</strong>:</p>
+<pre><code class="language-sh"># Build the site
+npm run build
+</code></pre>
+<h3 id="preview" tabindex="-1"><a class="header-anchor" href="#preview">Preview</a></h3>
+<p>Hosts the site at <a href="localhost:3000">localhost:3000</a>:</p>
+<pre><code class="language-sh"># Build the site
+npm run build
+
+</code></pre>
+<h3 id="development-workflow" tabindex="-1"><a class="header-anchor" href="#development-workflow">Development Workflow</a></h3>
+<p>Combines watching and serving:</p>
+<pre><code class="language-sh">npm start
+</code></pre>
+<h2 id="under-the-hood" tabindex="-1"><a class="header-anchor" href="#under-the-hood">Under the Hood</a></h2>
+<h3 id="core-functionalities" tabindex="-1"><a class="header-anchor" href="#core-functionalities">Core Functionalities</a></h3>
+<ol>
+<li><strong>Article Processing:</strong> Reads Markdown files, extracts metadata, and converts them into HTML.</li>
+<li><strong>Template Rendering:</strong> Uses Handlebars templates to generate the layout for different pages (home, archive, tag pages, etc.).</li>
+<li><strong>Static Assets Management:</strong> Copies assets like CSS, JavaScript, and images to the final build directory.</li>
+</ol>
+<h3 id="special-features" tabindex="-1"><a class="header-anchor" href="#special-features">Special Features</a></h3>
+<ul>
+<li><strong>Tag System:</strong> Organizes articles by tags, creating individual pages for each tag.</li>
+<li><strong>Archive Generation:</strong> Automatically generates an archive page, sorting articles by year.</li>
+<li><strong>About Page:</strong> Converts a Markdown file into an about page.</li>
+</ul>
+<h3 id="customizable-components" tabindex="-1"><a class="header-anchor" href="#customizable-components">Customizable Components</a></h3>
+<ul>
+<li><strong>Metadata Extraction:</strong> Flexible metadata handling allows for easy customization.</li>
+<li><strong>Handlebars Templates:</strong> Modify templates in the <code>templates</code> directory to change the site’s layout and style.</li>
+<li><strong>Styling:</strong> Adjust CSS in the <code>assets</code> folder to customize the site’s appearance.</li>
+</ul>
+<h2 id="conclusion" tabindex="-1"><a class="header-anchor" href="#conclusion">Conclusion</a></h2>
+<p>The <code>intervolzdotcom</code> static site generator offers a streamlined, customizable approach to building static websites. Its use of modern JavaScript tools and simple design makes it an excellent choice for developers looking for a straightforward yet powerful site generator.</p>
+<p>Whether you’re a blogger, a developer, or someone who loves tinkering with code, this generator is designed to simplify your web development process, letting you focus on creating great content.</p>
+<p>Ready to build your static site? Dive into the <code>intervolzdotcom</code> generator and start crafting your web presence today!</p>
+</div>
+        <div class="tags"></div>
+        </section>
+    </main>
+    <footer>
+        <!-- Your site's footer content -->
+
+            <a href="/tags/web/">#web</a>
+            <a href="/tags/js/">#js</a>
+            <a href="/tags/nodejs/">#nodejs</a>
+    </footer>
+</body>
+</html>
