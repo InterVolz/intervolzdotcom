@@ -1,6 +1,6 @@
 ## ABOUT
 
-Hello, I'm Maxwell, a 34 year old software engineer living in San Francisco.
+Hello, I am Maxwell, a 34 year old software engineer living in San Francisco.
 
 I am passionate about computers. Currently, for work, I automate various systems from bare metal to graphical dashboards using Python. I also like to write Python and JavaScript for fun! I love making things.
 
