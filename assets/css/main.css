@@ -29,6 +29,16 @@ nav {
     width: 100%;
 }
 
+nav a:first-child {
+    margin-left: 20px;
+    /* Adjust the value as needed */
+}
+
+nav a:last-child {
+    margin-right: 20px;
+    /* Adjust the value as needed */
+}
+
 /* Main Content Area Styles */
 .content {
     flex: 1;
