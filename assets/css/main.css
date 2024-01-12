@@ -1,9 +1,10 @@
 /* Global Styles */
+
 html,
 body {
     height: 100%;
     margin: 0;
-    padding: 0;
+    padding: 0 5px;
     display: flex;
     flex-direction: column;
     font-family: 'Roboto Mono', monospace;
@@ -34,9 +35,8 @@ nav {
 /* Main Content Area Styles */
 .content {
     flex: 1;
-    max-width: 800px;
+    max-width: 95vw;
     margin: 0 auto;
-    padding: 20px;
 }
 
 /* Footer Styles */
