@@ -97,6 +97,5 @@ article:hover .title_box .date {
 }
 
 div.date>time {
-    display: block;
-    text-align: right;
+    white-space: nowrap;
 }
