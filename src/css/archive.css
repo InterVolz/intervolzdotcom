@@ -25,6 +25,9 @@
     border-bottom: none;
 }
 
+.tag {
+    margin-right: 18px;
+}
 
 .article-list .tags {
     margin-top: 5px;
@@ -34,7 +37,6 @@
     display: inline-block;
     color: #555;
     padding: 3px 10px;
-    text-decoration: none;
     margin-right: 5px;
     font-size: 0.85em;
     border-radius: 3px;
@@ -48,42 +50,5 @@ div.article_box {
 div.title {
     color: #888;
     font-size: larger;
-    text-decoration: none;
-    cursor: auto;
-}
-
-
-li[data-href]:hover .article_box .title,
-li[data-href]:hover .article_box .date {
-    /* Example styles to indicate clickable items */
-    color: #007bff;
-    /* Change color */
-    text-decoration: underline;
-    /* Add underline */
-}
-
-/* Optional: Change cursor to pointer for the entire li element */
-li[data-href] {
-    cursor: pointer;
-}
-
-/* Ensure cursor is default for links inside li */
-li[data-href] a {
-    cursor: pointer;
-}
-
-ul>li>a:link {
-    text-decoration: none;
-}
-
-ul>li>a:visited {
-    text-decoration: none;
-}
-
-ul>li>a:hover {
-    text-decoration: none;
-}
-
-ul>li>a:active {
-    text-decoration: none;
+    margin-right: 20px;
 }

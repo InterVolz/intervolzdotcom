@@ -1,0 +1,13 @@
+section>h2,
+section>h2>a {
+    text-decoration: none !important;
+    color: white;
+}
+
+section>h3,
+section>h3>a,
+section>h4>a,
+section>h4 {
+    text-decoration: none !important;
+    color: #bbb;
+}

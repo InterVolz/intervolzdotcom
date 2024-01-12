@@ -9,20 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:wght@900&family=Rochester&family=Saira+Stencil+One&display=swap" rel="stylesheet">
 
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-        document.querySelectorAll('li[data-href]').forEach(item => {
-            item.addEventListener('click', function(e) {
-                // If the clicked element is not a link, navigate to the data-href URL
-                if (!e.target.closest('a')) {
-                    window.location.href = this.getAttribute('data-href');
-                }
-            });
-        });
-    });
-    </script>
 </head>
 <body>
     <header>
@@ -30,42 +19,46 @@
             <!-- Navigation links -->
             <a href="/">~</a> <a href="/archive">~/archive</a> <a href="/tags">~/tags</a> <a href="/about">~/about</a>
         </nav>
-        <h1 class="title">InterVolz</h1>
-        <div class="social-links">
-            <!-- Social media links -->
-            <a href="#">Github</a>
-            <!-- <a href="#">Twitter</a> -->
-            <!-- <a href="#">Stack Overflow</a> -->
-        </div>
     </header>
-    <main>
+    <main class="content">
+        <section class="profile">
+            <h1 class="title">InterVolz</h1>
+            <div class="social-links">
+                <!-- Social media links -->
+                <a href="https://github.com/InterVolz">Github</a>
+                <!-- <a href="#">Twitter</a> -->
+                <!-- <a href="#">Stack Overflow</a> -->
+            </div>
+        </section>
         <section>
         <div class="year-section">
             <h2>2024</h2>
             <ul class="article-list">
                 <li data-href="/posts/2024/static-website-2024/">
-                    <a href="/posts/2024/static-website-2024/">
                         <div class="article_box">
-                            <div class="title">Static Website Generator</div>
+                            <a href="/posts/2024/static-website-2024/">
+                                <div class="title">Static Website Generator</div>
+                            </a>
+
+                            <a href="/tags/web/" class="tag">web</a>
+                            <a href="/tags/js/" class="tag">js</a>
+                            <a href="/tags/nodejs/" class="tag">nodejs</a>
+
                             <div class="date"><time datetime="1/11/2024">Jan 11</time></div>
                         </div>
-                    </a>
-                    <div class="tags">
-                        <a href="/tags/web/">#web</a>
-                        <a href="/tags/js/">#js</a>
-                        <a href="/tags/nodejs/">#nodejs</a>
-                    </div>
+
                 </li>
                 <li data-href="/posts/2024/hello-world/">
-                    <a href="/posts/2024/hello-world/">
                         <div class="article_box">
-                            <div class="title">Hello World</div>
+                            <a href="/posts/2024/hello-world/">
+                                <div class="title">Hello World</div>
+                            </a>
+
+                            <a href="/tags/py/" class="tag">py</a>
+
                             <div class="date"><time datetime="1/1/2024">Jan 1</time></div>
                         </div>
-                    </a>
-                    <div class="tags">
-                        <a href="/tags/py/">#py</a>
-                    </div>
+
                 </li>
             </ul>
         </div>
@@ -73,39 +66,42 @@
             <h2>2023</h2>
             <ul class="article-list">
                 <li data-href="/posts/2023/jenkins-server-part-02/">
-                    <a href="/posts/2023/jenkins-server-part-02/">
                         <div class="article_box">
-                            <div class="title">Jenkins Server Part 2</div>
+                            <a href="/posts/2023/jenkins-server-part-02/">
+                                <div class="title">Jenkins Server Part 2</div>
+                            </a>
+
+                            <a href="/tags/jenkins/" class="tag">jenkins</a>
+                            <a href="/tags/web/" class="tag">web</a>
+
                             <div class="date"><time datetime="11/17/2023">Nov 17</time></div>
                         </div>
-                    </a>
-                    <div class="tags">
-                        <a href="/tags/jenkins/">#jenkins</a>
-                        <a href="/tags/web/">#web</a>
-                    </div>
+
                 </li>
                 <li data-href="/posts/2023/jenkins-server-part-1/">
-                    <a href="/posts/2023/jenkins-server-part-1/">
                         <div class="article_box">
-                            <div class="title">Jenkins Server Part 1</div>
+                            <a href="/posts/2023/jenkins-server-part-1/">
+                                <div class="title">Jenkins Server Part 1</div>
+                            </a>
+
+                            <a href="/tags/jenkins/" class="tag">jenkins</a>
+                            <a href="/tags/web/" class="tag">web</a>
+
                             <div class="date"><time datetime="11/15/2023">Nov 15</time></div>
                         </div>
-                    </a>
-                    <div class="tags">
-                        <a href="/tags/jenkins/">#jenkins</a>
-                        <a href="/tags/web/">#web</a>
-                    </div>
+
                 </li>
                 <li data-href="/posts/2023/big-o-no/">
-                    <a href="/posts/2023/big-o-no/">
                         <div class="article_box">
-                            <div class="title">Big O No</div>
+                            <a href="/posts/2023/big-o-no/">
+                                <div class="title">Big O No</div>
+                            </a>
+
+                            <a href="/tags/programming/" class="tag">programming</a>
+
                             <div class="date"><time datetime="11/14/2023">Nov 14</time></div>
                         </div>
-                    </a>
-                    <div class="tags">
-                        <a href="/tags/programming/">#programming</a>
-                    </div>
+
                 </li>
             </ul>
         </div>

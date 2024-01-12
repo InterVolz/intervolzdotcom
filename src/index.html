@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:wght@900&family=Rochester&family=Saira+Stencil+One&display=swap" rel="stylesheet">
 
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -17,15 +18,18 @@
             <!-- Navigation links -->
             <a href="/">~</a> <a href="/archive">~/archive</a> <a href="/tags">~/tags</a> <a href="/about">~/about</a>
         </nav>
-        <h1 class="title">InterVolz</h1>
-        <div class="social-links">
-            <!-- Social media links -->
-            <a href="#">Github</a>
-            <!-- <a href="#">Twitter</a> -->
-            <!-- <a href="#">Stack Overflow</a> -->
-        </div>
+        
     </header>
-    <main>
+    <main class="content">
+        <section class="profile">
+            <h1 class="title">InterVolz</h1>
+            <div class="social-links">
+                <!-- Social media links -->
+                <a href="https://github.com/InterVolz">Github</a>
+                <!-- <a href="#">Twitter</a> -->
+                <!-- <a href="#">Stack Overflow</a> -->
+            </div>
+        </section>
         <section class="latest-articles">
             <article>
                 <a href="posts/2024/static-website-2024/">
@@ -35,7 +39,6 @@
                     </div>
                     <div class="tldr">a short guide to how InterVolz.com and how it&#x27;s made</div>
                 </a>
-                
             </article>
             <article>
                 <a href="posts/2024/hello-world/">
@@ -45,7 +48,6 @@
                     </div>
                     <div class="tldr">new dawn day mess</div>
                 </a>
-                
             </article>
             <article>
                 <a href="posts/2023/jenkins-server-part-02/">
@@ -55,7 +57,6 @@
                     </div>
                     <div class="tldr">build servers are fun!</div>
                 </a>
-                
             </article>
             <article>
                 <a href="posts/2023/jenkins-server-part-1/">
@@ -65,7 +66,6 @@
                     </div>
                     <div class="tldr">build servers are fun!</div>
                 </a>
-                
             </article>
             <article>
                 <a href="posts/2023/big-o-no/">
@@ -75,8 +75,11 @@
                     </div>
                     <div class="tldr">optimized optimizing is optimal...</div>
                 </a>
-                
             </article>
+            <div class="older_posts_container">
+                <a href="/archive" class="more-articles-button">Older Posts</a>
+            </div>
+
         </section>
     </main>
     <footer>

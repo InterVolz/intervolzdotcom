@@ -9,20 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:wght@900&family=Rochester&family=Saira+Stencil+One&display=swap" rel="stylesheet">
 
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-        document.querySelectorAll('li[data-href]').forEach(item => {
-            item.addEventListener('click', function(e) {
-                // If the clicked element is not a link, navigate to the data-href URL
-                if (!e.target.closest('a')) {
-                    window.location.href = this.getAttribute('data-href');
-                }
-            });
-        });
-    });
-    </script>
 </head>
 <body>
     <header>
@@ -30,15 +19,17 @@
             <!-- Navigation links -->
             <a href="/">~</a> <a href="/archive">~/archive</a> <a href="/tags">~/tags</a> <a href="/about">~/about</a>
         </nav>
-        <h1 class="title">InterVolz</h1>
-        <div class="social-links">
-            <!-- Social media links -->
-            <a href="#">Github</a>
-            <!-- <a href="#">Twitter</a> -->
-            <!-- <a href="#">Stack Overflow</a> -->
-        </div>
     </header>
-    <main>
+    <main class="content">
+        <section class="profile">
+            <h1 class="title">InterVolz</h1>
+            <div class="social-links">
+                <!-- Social media links -->
+                <a href="https://github.com/InterVolz">Github</a>
+                <!-- <a href="#">Twitter</a> -->
+                <!-- <a href="#">Stack Overflow</a> -->
+            </div>
+        </section>
         <section>
         {{#each years}}
         <div class="year-section">
@@ -46,17 +37,18 @@
             <ul class="article-list">
                 {{#each articles}}
                 <li data-href="/{{metadata.FullPath}}">
-                    <a href="/{{metadata.FullPath}}">
                         <div class="article_box">
-                            <div class="title">{{metadata.Title}}</div>
+                            <a href="/{{metadata.FullPath}}">
+                                <div class="title">{{metadata.Title}}</div>
+                            </a>
+
+                            {{#each metadata.Tags}}
+                            <a href="/tags/{{this}}/" class="tag">{{this}}</a>
+                            {{/each}}
+
                             <div class="date"><time datetime="{{metadata.Date}}">{{metadata.HumanDate}}</time></div>
                         </div>
-                    </a>
-                    <div class="tags">
-                        {{#each metadata.Tags}}
-                        <a href="/tags/{{this}}/">#{{this}}</a>
-                        {{/each}}
-                    </div>
+
                 </li>
                 {{/each}}
             </ul>

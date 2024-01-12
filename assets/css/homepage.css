@@ -1,7 +1,6 @@
 body {
     color: #666;
     line-height: 1.6;
-    padding: 20px;
 }
 
 article {
@@ -51,6 +50,10 @@ article>a {
 .article-meta .date {
     color: #666;
     font-size: 0.9em;
+}
+
+.older_posts_container {
+    text-align: right;
 }
 
 /* Add any other styles you need for the page */
