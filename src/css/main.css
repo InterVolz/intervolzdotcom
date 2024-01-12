@@ -16,19 +16,20 @@ body {
 header {
     height: 3em;
     line-height: 3em;
-    text-align: center;
     padding: 0;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 nav {
     display: flex;
-    justify-content: space-around;
-    max-width: 800px;
+    justify-content: space-between;
+    /* Changed to space-between for even distribution */
+    max-width: 760px;
     width: 100%;
+    padding: 0 20px;
 }
-
 
 /* Main Content Area Styles */
 .content {
