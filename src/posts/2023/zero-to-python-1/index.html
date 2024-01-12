@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/article.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:wght@900&family=Rochester&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/highlight.min.css">
+    <script src="/js/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="/css/highlightjs-copy.min.css">
+    <link rel="stylesheet" href="/css/highlightjs-dracula.css">
+    <script src="/js/highlightjs-copy.min.js"></script>
+
+    <script>
+        hljs.addPlugin(
+            new CopyButtonPlugin({
+                callback: (text, el) => console.log("Copied to clipboard", text),
+            })
+        );
+        hljs.highlightAll();
+    </script>
+
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Navigation links -->
+            <a href="/">~</a> <a href="/archive">~/archive</a> <a href="/tags">~/tags</a> <a href="/about">~/about</a>
+        </nav>
+    </header>
+    <main class="content">
+        <section>
+        <h1 class="title">Zero to Python</h1>
+        <div class="snip">Nov 15 - 553 words - 9.2 mins</div>
+        <div class="content"><p>If you are on a machine where you’re unsure about the versions of Python, pip, or other dependencies, you can follow these steps to ensure a smooth installation and setup process:</p>
+<ol>
+<li>
+<p><strong>Check Python installation</strong>: Open a terminal or command prompt and check if Python is installed by running the following command:</p>
+<pre><code class="language-sh">python --version
+</code></pre>
+<p>This will display the installed Python version. If Python is not installed, you’ll need to download and install it from the official Python website (<a href="https://www.python.org/downloads">https://www.python.org/downloads</a>) and follow the installation instructions specific to your operating system.</p>
+</li>
+<li>
+<p><strong>Check pip installation</strong>: Check if pip, the Python package installer, is installed by running the following command:</p>
+<pre><code>pip --version
+</code></pre>
+<p>This will display the installed pip version. If pip is not installed or you have an outdated version, you can upgrade it by running the following command:</p>
+<pre><code>python -m pip install --upgrade pip
+</code></pre>
+</li>
+<li>
+<p><strong>Install Poetry</strong>: Now that you have Python and pip installed, you can proceed with installing Poetry. Use the following command to install Poetry using pip:</p>
+<pre><code>pip install poetry
+</code></pre>
+</li>
+<li>
+<p><strong>Create and navigate to a new project directory</strong>: Create a new directory for your project and navigate to it using the command line. You can use the <code>mkdir</code> command to create a directory and the <code>cd</code> command to navigate into it. For example:</p>
+<pre><code>mkdir my_project
+cd my_project
+</code></pre>
+</li>
+<li>
+<p><strong>Initialize a new Poetry project</strong>: Once inside your project directory, initialize a new Poetry project by running the following command:</p>
+<pre><code>poetry init
+</code></pre>
+<p>Follow the prompts to enter the details about your project, such as name, version, description, etc. You can press Enter to accept the default values or provide your own.</p>
+</li>
+<li>
+<p><strong>Add and install dependencies</strong>: To add dependencies to your project, you can use the <code>add</code> command followed by the package name and optionally the version specifier. For example, to add the requests library, run:</p>
+<pre><code>poetry add requests
+</code></pre>
+<p>Poetry will automatically resolve and manage the dependencies for your project. The dependencies will be installed within a virtual environment managed by Poetry.</p>
+</li>
+<li>
+<p><strong>Activate the virtual environment</strong>: Poetry automatically creates a virtual environment for your project. To activate it, run the following command:</p>
+<pre><code>poetry shell
+</code></pre>
+<p>This will activate the virtual environment, and you’ll see the command prompt change to indicate that you’re working within the virtual environment.</p>
+<p><em>The first time you do this or after adding new dependencies you need to run</em>:</p>
+<pre><code class="language-python"># On Windows, Start Powershell as Admin
+Invoke-WebRequest -UseBasicParsing -Uri &quot;https://raw.githubusercontent.com/pyenv-win/pyenv-win/master/pyenv-win/install-pyenv-win.ps1&quot; -OutFile &quot;./install-pyenv-win.ps1&quot;; &amp;&quot;./install-pyenv-win.ps1&quot;
+# if that fails run Set-ExecutionPolicy RemoteSigned, and run again
+# re-open Powershell
+
+pyenv install 3.9.8 # example install of new python version
+poetry install
+poetry env use 3.11  # change python versions
+poetry install       # reinstall dependencies
+
+</code></pre>
+</li>
+<li>
+<p><strong>Run your project</strong>: You can now run your Python project using the Poetry-managed virtual environment. For example, if your project has an entry point script called <code>main.py</code>, you can execute it using the following command:</p>
+<pre><code>python main.py
+</code></pre>
+<p>Poetry will ensure that your project’s dependencies are available and properly configured when running your script.</p>
+</li>
+</ol>
+<p>By following these steps, you should be able to install and set up a Python project using Poetry, even on a machine where you are unsure about the versions of Python, pip, or other dependencies.</p>
+</div>
+        <div class="tags"></div>
+        </section>
+    </main>
+    <footer>
+        <!-- Your site's footer content -->
+        
+            <a href="/tags/py/">py</a>
+    </footer>
+</body>
+</html>

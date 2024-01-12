@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/article.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:wght@900&family=Rochester&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/highlight.min.css">
+    <script src="/js/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="/css/highlightjs-copy.min.css">
+    <link rel="stylesheet" href="/css/highlightjs-dracula.css">
+    <script src="/js/highlightjs-copy.min.js"></script>
+
+    <script>
+        hljs.addPlugin(
+            new CopyButtonPlugin({
+                callback: (text, el) => console.log("Copied to clipboard", text),
+            })
+        );
+        hljs.highlightAll();
+    </script>
+
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Navigation links -->
+            <a href="/">~</a> <a href="/archive">~/archive</a> <a href="/tags">~/tags</a> <a href="/about">~/about</a>
+        </nav>
+    </header>
+    <main class="content">
+        <section>
+        <h1 class="title">Higher Order Functions in Python</h1>
+        <div class="snip">Dec 27 - 318 words - 5.3 mins</div>
+        <div class="content"><h2 id="analogy" tabindex="-1"><a class="header-anchor" href="#analogy">Analogy</a></h2>
+<p>Higher order functions can be described as the project manager. The project manager combines the work of engineers(functions) to create something more complex.</p>
+<h3 id="example-1---maps" tabindex="-1"><a class="header-anchor" href="#example-1---maps">Example 1 - Maps</a></h3>
+<p>The <em>map</em> function applies a given function to each item of an iterable (like a list) and returns a map object (which is an iterator). This can be annoying. You cannot easily print a map object. Cast it to a list as seen below.</p>
+<pre><code class="language-py">numbers = [1, 2, 3, 4, 5]
+squared = map(lambda x: x**2, numbers)
+print(list(squared))
+# Output: [1, 4, 9, 16, 25]
+</code></pre>
+<h3 id="example-2---filters" tabindex="-1"><a class="header-anchor" href="#example-2---filters">Example 2 - Filters</a></h3>
+<p><em>Filter</em> applies the function and returns values that pass as <strong>True</strong>.</p>
+<pre><code class="language-py">numbers = [1, 2, 3, 4, 5]
+even_numbers = filter(lambda x: x % 2 == 0, numbers)
+print(list(even_numbers))
+# Output: [2, 4]
+</code></pre>
+<h3 id="example-3---map-filter-combo" tabindex="-1"><a class="header-anchor" href="#example-3---map-filter-combo">Example 3 - Map Filter Combo</a></h3>
+<p>Because <em>Map</em> and <em>Filter</em> return iterables they can be chained. Very cool. Can be unwieldy.</p>
+<pre><code class="language-py">numbers = [1, 2, 3, 4, 5]
+squared_evens = map(lambda x: x**2, filter(lambda x: x % 2 == 0, numbers))
+print(list(squared_evens))
+# Output: [4, 16]
+</code></pre>
+<h2 id="more-analogy---the-consultant" tabindex="-1"><a class="header-anchor" href="#more-analogy---the-consultant">More Analogy - The Consultant</a></h2>
+<p>Now, suppose the company hires a consultant to improve the efficiency or quality of the engineer’s work. The consultant doesn’t change the engineer’s fundamental method of working but provides additional guidance, tools, or strategies to enhance the output. The consultant works directly with the engineer and “wrap” the engineer’s (function’s) process, adding improvements or modifications, just like a decorator in Python adds functionality to a function.</p>
+<h3 id="example-4---decorators" tabindex="-1"><a class="header-anchor" href="#example-4---decorators">Example 4 - Decorators</a></h3>
+<pre><code class="language-py">def quality_assurance(func):
+    # Consultant (Decorator) enhancing the function
+    def qa_wrapper(component):
+        # Pre-task enhancement
+        print(f&quot;Quality check initiated for {component}. Hmm.&quot;)
+        func(component)
+        # Post-task enhancement
+        print(f&quot;Yep! This checks out. Quality check completed for {component}.&quot;)
+    return qa_wrapper
+
+@quality_assurance
+def design_component(component):
+    # Engineer (Function) performing the core task
+    print(f&quot;Designing the {component}.&quot;)
+
+# Using the decorated function
+design_component(&quot;hydraulic pump&quot;)
+</code></pre>
+</div>
+        <div class="tags"></div>
+        </section>
+    </main>
+    <footer>
+        <!-- Your site's footer content -->
+        
+            <a href="/tags/py/">py</a>
+    </footer>
+</body>
+</html>
