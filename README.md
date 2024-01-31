@@ -2,6 +2,12 @@
 the website repo
 
 
+## TODO:
+
+1. /resources - for linking to raw data like scripts and CSVs
+2. Post articles for January
+3. 
+
 ## Article formatting
 
 1. The first 5 lines of the article contain metadata that needs to be parsed and trimmed.
