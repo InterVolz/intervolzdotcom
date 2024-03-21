@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/article.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:wght@900&family=Rochester&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/highlight.min.css">
+    <script src="/js/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="/css/highlightjs-copy.min.css">
+    <link rel="stylesheet" href="/css/highlightjs-dracula.css">
+    <script src="/js/highlightjs-copy.min.js"></script>
+
+    <script>
+        hljs.addPlugin(
+            new CopyButtonPlugin({
+                callback: (text, el) => console.log("Copied to clipboard", text),
+            })
+        );
+        hljs.highlightAll();
+    </script>
+
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Navigation links -->
+            <a href="/">~</a> <a href="/archive">~/archive</a> <a href="/tags">~/tags</a> <a href="/about">~/about</a>
+        </nav>
+    </header>
+    <main class="content">
+        <section>
+        <h1 class="title">Jenkins Server Part 1</h1>
+        <div class="snip">Jan 12 - 181 words - 3.0 mins</div>
+        <div class="content"><ul>
+<li><a href="#workflows"><strong>Workflows</strong></a>
+<ul>
+<li><a href="#development-workflow"><strong>DEVELOPMENT WORKFLOW</strong></a></li>
+<li><a href="#web-visit-workflow"><strong>WEB VISIT WORKFLOW</strong></a></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><strong>Github</strong>: This is where the development happens. Any updates pushed here will trigger a webhook.</li>
+<li><strong>Reverse Proxy Server</strong>: This server is exposed and runs as a Docker image on the Docker network intervolz-network. It receives the webhook from Github and sends an update to Jenkins.</li>
+<li><strong>Jenkins</strong>: Jenkins is a CI/CD tool that rebuilds the Docker image for <a href="http://intervolz.com">intervolz.com</a> upon receiving an update from the Reverse Proxy Server.</li>
+<li><strong>Docker</strong>: Docker hosts the <a href="http://intervolz.com">intervolz.com</a> image locally, and the jenkins server, and the reverse proxy, and the network</li>
+</ol>
+<h2 id="workflows" tabindex="-1"><a class="header-anchor" href="#workflows"><strong>Workflows</strong></a></h2>
+<h3 id="development-workflow" tabindex="-1"><a class="header-anchor" href="#development-workflow"><strong>DEVELOPMENT WORKFLOW</strong></a></h3>
+<ol>
+<li>Developer pushes an update to Github.</li>
+<li>The Github update triggers a webhook.</li>
+<li>The exposed Reverse Proxy Server running as a Docker image on the Docker network intervolz-network receives the webhook.</li>
+<li>The Reverse Proxy Server sends an update to Jenkins.</li>
+<li>Jenkins rebuilds the <a href="http://intervolz.com">intervolz.com</a> Docker image.</li>
+</ol>
+<h3 id="web-visit-workflow" tabindex="-1"><a class="header-anchor" href="#web-visit-workflow"><strong>WEB VISIT WORKFLOW</strong></a></h3>
+<ol>
+<li>A user requests <a href="http://www.intervolz.com">www.intervolz.com</a>.</li>
+<li>The exposed Reverse Proxy Server running as a Docker image on the Docker network intervolz-network receives the request.</li>
+<li>The Reverse Proxy Server directs the request to the locally hosted Docker image intervolzdotcom.</li>
+</ol>
+</div>
+        <div class="tags"></div>
+        </section>
+    </main>
+    <footer>
+        <!-- Your site's footer content -->
+        
+            <a href="/tags/jenkins/">jenkins</a>
+            <a href="/tags/web/">web</a>
+    </footer>
+</body>
+</html>

@@ -29,6 +29,7 @@ Before setting up a virtual environment, it's important to check which version o
 
 ```sh
 python --version
+# Python 3.12.2
 ```
 
 If you don't have Python installed, you can download and install the latest version from the [official Python website](https://www.python.org/).
@@ -41,10 +42,10 @@ To set up a virtual environment using venv, follow these steps:
 
 ```sh
 # Create a virtual environment
-python3 -m venv venv
+python -m venv venv
 
 # Create venv with specific Python version
-python3 -m venv --python=/path/to/python3.11.5 venv
+python -m venv --python=/path/to/python3.11.5 venv
 
 # Activate virtual environment
 source venv/bin/activate # Unix
